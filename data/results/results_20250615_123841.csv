@@ -1,0 +1,2 @@
+inventory_id,confidence,reasoning,inventory_name,alternate_name,receipt_item,success,receipt_upc,inventory_item,vendor_name
+1,95,Matched brand 'Corona Extra' and size '6/12oz'. No other Corona variant matched better.,,,CORONA 4/6 /12 OZ BTL,True,8066095609,"{'id': 1, 'name': None}",DC Grocery Cash & Carry

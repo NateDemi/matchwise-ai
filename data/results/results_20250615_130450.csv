@@ -1,0 +1,10 @@
+success,error,receipt_item,receipt_upc,inventory_id,inventory_name,confidence,reasoning,is_correct,vendor_name
+False,"operator does not exist: text = integer
+LINE 5:             WHERE id = 6
+                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+",CORONA 4/6 /12 OZ BTL,8066095609,,,0,"Processing error: operator does not exist: text = integer
+LINE 5:             WHERE id = 6
+                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+",False,DC Grocery Cash & Carry

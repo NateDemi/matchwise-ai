@@ -1,0 +1,48 @@
+name: Process Receipt Items
+
+on:
+  repository_dispatch:
+    types: [process_receipts]
+
+jobs:
+  process-receipts:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
+    - name: Set up environment variables
+      env:
+        # Database configuration
+        DB_NAME: ${{ secrets.DB_NAME }}
+        DB_USER: ${{ secrets.DB_USER }}
+        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+        DB_HOST: ${{ secrets.DB_HOST }}
+        DB_PORT: ${{ secrets.DB_PORT }}
+        
+        # OpenAI configuration
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        OPENAI_MODEL: ${{ secrets.OPENAI_MODEL }}
+        
+        # Application settings
+        MAX_CANDIDATES: ${{ secrets.MAX_CANDIDATES }}
+        RESULTS_DIR: ${{ secrets.RESULTS_DIR }}
+        
+    - name: Process receipt items
+      run: |
+        python bin/run.py --docupanda_id ${{ github.event.client_payload.docupanda_id }} --save_to_db
+        
+    - name: Log completion
+      run: |
+        echo "✅ Processing completed for docupanda_id: ${{ github.event.client_payload.docupanda_id }}"

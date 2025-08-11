@@ -1,0 +1,2 @@
+inventory_id,confidence,reasoning,inventory_name,alternate_name,receipt_item,success,receipt_upc,inventory_item,vendor_name
+1YZ96KKPTJ3QT,85,"Matched brand 'Corona', variant '12 Fl Oz Can', and ABV '4.6%'. No other Corona variant matched better.",Corona Extra Lager Mexican Beer | 12 Fl Oz Can | 4.6% ABV,corona 120z,CORONA 4/6 /12 OZ BTL,True,8066095609,"{'id': '1YZ96KKPTJ3QT', 'name': 'Corona Extra Lager Mexican Beer | 12 Fl Oz Can | 4.6% ABV'}",DC Grocery Cash & Carry

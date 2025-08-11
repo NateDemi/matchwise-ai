@@ -1,0 +1,2 @@
+inventory_id,confidence,reasoning,inventory_name,receipt_item,success,receipt_upc,vendor_item_id,vendor_name
+,88,"Receipt specifies Tide liquid with Downy April Fresh (6/42 oz), but inventory only has Tide Pods with Downy April Fresh and a Tide liquid in Original scent; no item matches both the type (liquid) and variant (Downy April Fresh).",,TIDE 2X DOWNY APRL FRESH LIQ 6/42 OZ,True,03077212272,4552,DC GROCERY CASH & CARRY

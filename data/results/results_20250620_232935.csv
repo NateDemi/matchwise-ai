@@ -1,0 +1,3 @@
+inventory_id,confidence,reasoning,inventory_name,receipt_item,success,receipt_upc,inventory_item,vendor_item_id,vendor_name
+A52CPH1N4EGZW,95,"Matched brand '5 Gum', variant 'Sour Strawberry Flood', and count '10 CT'. No other variant matched better.",5 Gum Strawberry Flood Sugarfree Gum | Single Pack,FIVE GUM SOUR STRBRY FLOOD 10 CT,True,02200011045,"{'id': 'A52CPH1N4EGZW', 'name': '5 Gum Strawberry Flood Sugarfree Gum | Single Pack'}",4,
+B2KBV7PBQGSY6,85,Matched 'blue' in the name and no other item had a better match.,blueberry para,BLUE PALM GLOVE 10T,True,84997905063,"{'id': 'B2KBV7PBQGSY6', 'name': 'blueberry para'}",12,DC GROCERY CASH & CARRY

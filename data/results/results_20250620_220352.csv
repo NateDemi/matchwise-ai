@@ -1,0 +1,2 @@
+success,error,receipt_item,receipt_upc,inventory_id,inventory_name,confidence,reasoning,is_correct,vendor_name
+False,name 'get_candidates_by_similarity' is not defined,TIDE 2X DOWNY APRL FRESH LIQ 6/42 OZ,03077212272,,,0,Processing error: name 'get_candidates_by_similarity' is not defined,False,

@@ -1,0 +1,2 @@
+inventory_id,confidence,reasoning,inventory_name,alternate_name,receipt_item,success,receipt_upc,inventory_item,vendor_name
+1HFNV3GP9BX1T,90,"The inventory item 'corona extra 6/12oz' closely matches the receipt item 'CORONA 4/6 /12 OZ BTL' in terms of brand, product type, size, and quantity.",corona extra 6/12oz,Corona Extra 6/12oz,CORONA 4/6 /12 OZ BTL,True,8066095609,"{'id': '1HFNV3GP9BX1T', 'name': 'corona extra 6/12oz'}",DC Grocery Cash & Carry

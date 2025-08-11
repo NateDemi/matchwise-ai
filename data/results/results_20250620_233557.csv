@@ -1,0 +1,3 @@
+inventory_id,confidence,reasoning,inventory_name,receipt_item,success,receipt_upc,inventory_item,vendor_item_id,vendor_name
+5FBCQP56G3028,85,Matched brand 'KINGSFORD' and variant 'match light'. Size '8lb' is the closest match available.,kingsford match light8lb,MATCHES 5CT,True,7521800196,"{'id': '5FBCQP56G3028', 'name': 'kingsford match light8lb'}",13,
+96Z3RER6T0KNW,85,"Matched brand 'Friskies', variant 'Meaty Bits With Beef In Gravy', and size '5.5oz Can'.",Friskies Meaty Bits With Beef In Gravy Wet Cat Food 5.5oz Can,FRISKIES% CAT FOODBEEF GBLT 24/5.5OZ,True,5000042054,"{'id': '96Z3RER6T0KNW', 'name': 'Friskies Meaty Bits With Beef In Gravy Wet Cat Food 5.5oz Can'}",14,

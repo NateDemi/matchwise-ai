@@ -1,0 +1,28 @@
+# .cursorrules.md
+
+## ✅ Python Project Development Rules
+
+### 🐍 Environment Setup
+- Always activate the virtual environment before running or installing anything:
+  - `source venv/bin/activate` 
+- Use `requirements.txt` to manage dependencies.
+- Keep the `venv/` directory untracked in `.gitignore`.
+
+### 🔐 Environment Variables & Secrets
+- Store all credentials and sensitive configuration (API keys, tokens, etc.) in a `.env` file.
+- Never commit `.env` to version control — add it to `.gitignore`.
+- Use the `python-dotenv` package (or similar) to load environment variables safely in your scripts.
+
+### 🧠 Workflow & Communication
+- **Always ask for clarity before starting a new task or feature.**
+- Break large tasks into clear, actionable steps.
+- Track progress collaboratively in a `TASKS.md` file.
+- Keep all assumptions, decisions, and blockers noted in context.
+
+---
+
+## 📋 TASKS.md Guidelines
+
+Use `TASKS.md` to plan and track your work like a mini project manager.
+
+### Task Template

@@ -1,0 +1,2 @@
+inventory_id,confidence,reasoning,inventory_name,receipt_item,success,receipt_upc,inventory_item,vendor_item_id,vendor_name
+NEWE46M63NBJG,58,"Matches brand 'Tide' and variant 'with Downy April Fresh'; receipt specifies liquid 42 oz, but the closest inventory option with the correct variant is the Pods version, so confidence is moderate.",Tide Pods Detergent | 4 In 1 With Downy | April Fresh | Pacs,TIDE 2X DOWNY APRL FRESH LIQ 6/42 OZ,True,03077212272,"{'id': 'NEWE46M63NBJG', 'name': 'Tide Pods Detergent | 4 In 1 With Downy | April Fresh | Pacs'}",4552,DC GROCERY CASH & CARRY

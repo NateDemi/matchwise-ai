@@ -1,0 +1,35 @@
+{
+  "id": "98b13328-6d88-4d8b-8abf-8870b440145a",
+  "timestamp": "2025-05-22T03:10:57.655879",
+  "receipt_item": "AMYKCTHN TOFU 6/14OZ",
+  "model": "gpt-3.5-turbo",
+  "input": {
+    "prompt": "\nYou are a product-matching assistant.\n\nYour task is to identify the most likely inventory item that matches a given receipt item description. Receipt item names may include abbreviations, misspellings, product sizes, quantities, or variants (e.g., flavor, count, oz).\n\n### STRUCTURE EXAMPLES (for context only):\n1. \"EGGO CHOCO BUN 6 PACK\" \u2192 item: EGGO CHOCO BUN | size: 6 PACK  \n2. \"CLOROX DISINFECTING BLEACH 6/43 oz\" \u2192 item: CLOROX DISINFECTING BLEACH | size: 43 oz  \n3. \"CLIF BAR OATMEAL RAISIN WALNUT 12CT\" \u2192 item: CLIF BAR OATMEAL RAISIN WALNUT | size: 12CT  \n4. \"TURKEY HILL FRT PUNCH 8/64FZ\" \u2192 item: TURKEY HILL FRUIT PUNCH | size: 64 fl oz  \n5. \"GATORADE FT PNCH 24/20OZ\" \u2192 item: GATORADE FRUIT PUNCH | size: 20 oz  \n\n> Receipt item names may use inconsistent formatting, abbreviations, or shorthand.\n\n### COMMON ABBREVIATIONS:\n- FT, FRT = Fruit\n- OZ, FZ, FLZ = Ounce, Fluid Ounce\n- PK, PCK = Pack\n- CT, CNT = Count\n- BTL = Bottle\n- CAN = Can or 12oz \n- BX = Box\n- L = Liter\n- 2/12PK = 2 packs of 12\n- 2/16PK = 2 packs of 16\n- geto = Getorade\n- H&H  = Half & Half\n- 8/ 2LTR = 8 bottles of 2 liters\n- 3/8-16.9OZ = 3 packs of 8 bottles, each 16.9 ounces\n- AW CRM = A&W Cream Soda\n\n### INVENTORY STRUCTURE:\nYou are comparing against a list of inventory items from table `store_data.inventory_items`. Each item has:\n- `id` (integer)\n- `name` (text)\n- `alternate_name` (text)\n\n### INPUTS:\nRECEIPT ITEM TO MATCH: \"AMYKCTHN TOFU 6/14OZ\"  \nAVAILABLE INVENTORY ITEMS:\nID: T3Q2JHNJ7Z1YC, Name: \"Amy's Gluten Free Vegan Tofu Scramble Frozen Breakfast Wrap - 5.5oz\", Alt Name: \"amys g/f tofu scramble 5.5oz\"\nID: WVR3WY3WKAN80, Name: \"Mori-Nu Silken Extra Firm Tofu 12.3oz\", Alt Name: \"tofu extra firm 12.3oz\"\nID: 0P67QNQ39YYET, Name: \"Pmo Organic Firm Tofu\", Alt Name: \"pulmuone tofu firm organ\"\nID: WZ4CC7Q630S0G, Name: \"Mori-Nu Silken Tofu Firm 12.3OZ\", Alt Name: \"N/A\"\nID: 4QG3907GJVZ20, Name: \"Pulmuone All Natural Tofu Firm\", Alt Name: \"tofu firm\"\nID: F7V3DJMNXQ86R, Name: \"House Foods Premium Firm Tofu\", Alt Name: \"House Tofu firm 19oz\"\n\n\n### MATCHING RULES:\n1. Return **only the single most likely** inventory item match.\n2. Consider product brand, name, size, and variant (e.g., flavor, quantity).\n3. Use both `name` and `alternate_name` fields when comparing.\n4. Only consider items from the same general category (e.g., food, beverage, tobacco, household).\n5. If **no item reasonably matches**, return null.\n\n### OUTPUT FORMAT:\nRespond with a single JSON object in a list format:\n- `inventory_id`: integer or null  \n- `confidence`: 0\u2013100 (estimated likelihood of correct match)  \n- `reasoning`: one sentence explaining the rationale for the match (or why no match was found)\n\n### RESPONSE EXAMPLE:\n[\n  {\n    \"inventory_id\": 12345,\n    \"confidence\": 92,\n    \"reasoning\": \"Matched brand 'Gatorade', product 'Fruit Punch', and size '20 oz'. Alternate name aligned closely.\"\n  }\n]\n    ",
+    "messages": [
+      {
+        "role": "user",
+        "content": "\nYou are a product-matching assistant.\n\nYour task is to identify the most likely inventory item that matches a given receipt item description. Receipt item names may include abbreviations, misspellings, product sizes, quantities, or variants (e.g., flavor, count, oz).\n\n### STRUCTURE EXAMPLES (for context only):\n1. \"EGGO CHOCO BUN 6 PACK\" \u2192 item: EGGO CHOCO BUN | size: 6 PACK  \n2. \"CLOROX DISINFECTING BLEACH 6/43 oz\" \u2192 item: CLOROX DISINFECTING BLEACH | size: 43 oz  \n3. \"CLIF BAR OATMEAL RAISIN WALNUT 12CT\" \u2192 item: CLIF BAR OATMEAL RAISIN WALNUT | size: 12CT  \n4. \"TURKEY HILL FRT PUNCH 8/64FZ\" \u2192 item: TURKEY HILL FRUIT PUNCH | size: 64 fl oz  \n5. \"GATORADE FT PNCH 24/20OZ\" \u2192 item: GATORADE FRUIT PUNCH | size: 20 oz  \n\n> Receipt item names may use inconsistent formatting, abbreviations, or shorthand.\n\n### COMMON ABBREVIATIONS:\n- FT, FRT = Fruit\n- OZ, FZ, FLZ = Ounce, Fluid Ounce\n- PK, PCK = Pack\n- CT, CNT = Count\n- BTL = Bottle\n- CAN = Can or 12oz \n- BX = Box\n- L = Liter\n- 2/12PK = 2 packs of 12\n- 2/16PK = 2 packs of 16\n- geto = Getorade\n- H&H  = Half & Half\n- 8/ 2LTR = 8 bottles of 2 liters\n- 3/8-16.9OZ = 3 packs of 8 bottles, each 16.9 ounces\n- AW CRM = A&W Cream Soda\n\n### INVENTORY STRUCTURE:\nYou are comparing against a list of inventory items from table `store_data.inventory_items`. Each item has:\n- `id` (integer)\n- `name` (text)\n- `alternate_name` (text)\n\n### INPUTS:\nRECEIPT ITEM TO MATCH: \"AMYKCTHN TOFU 6/14OZ\"  \nAVAILABLE INVENTORY ITEMS:\nID: T3Q2JHNJ7Z1YC, Name: \"Amy's Gluten Free Vegan Tofu Scramble Frozen Breakfast Wrap - 5.5oz\", Alt Name: \"amys g/f tofu scramble 5.5oz\"\nID: WVR3WY3WKAN80, Name: \"Mori-Nu Silken Extra Firm Tofu 12.3oz\", Alt Name: \"tofu extra firm 12.3oz\"\nID: 0P67QNQ39YYET, Name: \"Pmo Organic Firm Tofu\", Alt Name: \"pulmuone tofu firm organ\"\nID: WZ4CC7Q630S0G, Name: \"Mori-Nu Silken Tofu Firm 12.3OZ\", Alt Name: \"N/A\"\nID: 4QG3907GJVZ20, Name: \"Pulmuone All Natural Tofu Firm\", Alt Name: \"tofu firm\"\nID: F7V3DJMNXQ86R, Name: \"House Foods Premium Firm Tofu\", Alt Name: \"House Tofu firm 19oz\"\n\n\n### MATCHING RULES:\n1. Return **only the single most likely** inventory item match.\n2. Consider product brand, name, size, and variant (e.g., flavor, quantity).\n3. Use both `name` and `alternate_name` fields when comparing.\n4. Only consider items from the same general category (e.g., food, beverage, tobacco, household).\n5. If **no item reasonably matches**, return null.\n\n### OUTPUT FORMAT:\nRespond with a single JSON object in a list format:\n- `inventory_id`: integer or null  \n- `confidence`: 0\u2013100 (estimated likelihood of correct match)  \n- `reasoning`: one sentence explaining the rationale for the match (or why no match was found)\n\n### RESPONSE EXAMPLE:\n[\n  {\n    \"inventory_id\": 12345,\n    \"confidence\": 92,\n    \"reasoning\": \"Matched brand 'Gatorade', product 'Fruit Punch', and size '20 oz'. Alternate name aligned closely.\"\n  }\n]\n    "
+      }
+    ],
+    "temperature": 0.1,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "candidates_count": 6,
+  "output": {
+    "content": "\n{\n  \"inventory_id\": \"WVR3WY3WKAN80\",\n  \"confidence\": 85,\n  \"reasoning\": \"Matched brand 'Mori-Nu', product 'Silken Extra Firm Tofu', and size '12.3 oz'.\"\n}",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 980,
+      "completion_tokens": 60,
+      "total_tokens": 1040
+    }
+  },
+  "matching_item": {
+    "id": "WVR3WY3WKAN80",
+    "name": "Mori-Nu Silken Extra Firm Tofu 12.3oz",
+    "alternate_name": "tofu extra firm 12.3oz"
+  },
+  "success": true
+}
