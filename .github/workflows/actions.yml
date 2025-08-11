@@ -23,6 +23,9 @@ jobs:
       # Application settings
       MAX_CANDIDATES: ${{ vars.MAX_CANDIDATES }}
       RESULTS_DIR: ${{ vars.RESULTS_DIR }}
+      
+      # Webhook callback URL (set this in GitHub variables)
+      WEBHOOK_CALLBACK_URL: ${{ vars.WEBHOOK_CALLBACK_URL }}
     
     steps:
     - name: Checkout code
@@ -41,6 +44,30 @@ jobs:
     - name: Process receipt items
       run: |
         python bin/run.py --docupanda_id ${{ github.event.client_payload.docupanda_id }} --save_to_db
+        
+    - name: Notify completion to Make.com
+      if: always()
+      run: |
+        if [ "${{ job.status }}" == "success" ]; then
+          STATUS="completed"
+          MESSAGE="✅ Processing completed successfully"
+        else
+          STATUS="failed"
+          MESSAGE="❌ Processing failed"
+        fi
+        
+        curl -X POST ${{ vars.WEBHOOK_CALLBACK_URL }} \
+          -H "Content-Type: application/json" \
+          -d "{
+            \"status\": \"$STATUS\",
+            \"message\": \"$MESSAGE\",
+            \"docupanda_id\": \"${{ github.event.client_payload.docupanda_id }}\",
+            \"workflow_run_id\": \"${{ github.run_id }}\",
+            \"workflow_run_number\": \"${{ github.run_number }}\",
+            \"timestamp\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\",
+            \"repository\": \"${{ github.repository }}\",
+            \"commit\": \"${{ github.sha }}\"
+          }"
         
     - name: Log completion
       run: |
