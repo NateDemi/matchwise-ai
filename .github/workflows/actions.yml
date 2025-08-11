@@ -22,10 +22,22 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         
-    - name: Set up database connection
+    - name: Set up environment variables
       env:
-        DATABASE_URL: ${{ secrets.DATABASE_URL }}
-        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        # Database configuration
+        DB_NAME: ${{ vars.DB_NAME }}
+        DB_USER: ${{ vars.DB_USER }}
+        DB_PASSWORD: ${{ vars.DB_PASSWORD }}
+        DB_HOST: ${{ vars.DB_HOST }}
+        DB_PORT: ${{ vars.DB_PORT }}
+        
+        # OpenAI configuration
+        OPENAI_API_KEY: ${{ vars.OPENAI_API_KEY }}
+        OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
+        
+        # Application settings
+        MAX_CANDIDATES: ${{ vars.MAX_CANDIDATES }}
+        RESULTS_DIR: ${{ vars.RESULTS_DIR }}
         
     - name: Process receipt items
       run: |
