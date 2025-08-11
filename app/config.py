@@ -20,12 +20,12 @@ DB_CONNECTION_STRING = f"postgresql://{DB_CONFIG['user']}:{DB_CONFIG['password']
 
 # OpenAI configuration
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-OPENAI_MODEL = os.getenv("OPENAI_MODEL")
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-5")
 OPENAI_EMBEDDING_MODEL = os.getenv("OPENAI_EMBEDDING_MODEL")
 
 # Application settings
-MAX_CANDIDATES = int(os.getenv("MAX_CANDIDATES"))
-BATCH_SIZE = int(os.getenv("BATCH_SIZE"))
+MAX_CANDIDATES = int(os.getenv("MAX_CANDIDATES", "4"))
+BATCH_SIZE = int(os.getenv("BATCH_SIZE", "10"))
 
 # Logging settings
 LOG_LEVEL = getattr(logging, os.getenv("LOG_LEVEL", "INFO"))
