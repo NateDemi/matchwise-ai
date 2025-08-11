@@ -141,3 +141,4 @@ Thumbs.db
 # Application specific
 data/results/
 *.log
+.env
