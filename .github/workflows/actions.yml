@@ -49,10 +49,10 @@ jobs:
       run: |
         if [ "${{ job.status }}" == "success" ]; then
           STATUS="completed"
-          MESSAGE="✅ Processing completed successfully"
+          MESSAGE="success"
         else
           STATUS="failed"
-          MESSAGE="❌ Processing failed"
+          MESSAGE="fail"
         fi
         
         curl -X POST ${{ vars.WEBHOOK_CALLBACK_URL }} \
